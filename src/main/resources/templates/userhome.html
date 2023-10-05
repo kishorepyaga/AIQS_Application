@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>User Home Page</title>
+  </head>
+  <body style="font-size: 130%;">
+	  <div><p>Welcome <span sec:authentication="principal.username"/></p></div>
+	  <div><p>Common content section for both Admin & User</p></div>
+	  <p><a th:href="@{/logout}">Logout</a></p>
+	  <div sec:authorize="hasAuthority('ROLE_ADMIN')">
+		  <h3>Restricted Contenet, Displayed to Admin Only</h3>
+		  <p><a th:href="@{/admin/home}">Admin Home</a></p>
+	  </div>
+  </body>
+</html>

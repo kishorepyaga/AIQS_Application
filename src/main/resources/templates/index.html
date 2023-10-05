@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+  </head>
+  <body>
+	  <h1 style="font-family: Georgia, 'Times New Roman', Times, serif; color: lawngreen;">AIQS Application</h1>
+	  <div style="font-size: 150%;">
+		  <p sec:authorize="isAnonymous()"><a th:href="@{/login}">Login</a></p>
+		  <p><a th:href="@{/home}">User Home</a></p>
+		  <p><a th:href="@{/admin/home}">Admin Home</a></p>
+		  <p><a th:href="@{/public/insuranceProviders}">Insurance Providers List</a></p>
+		  <p><a th:href="@{/public/userFolder/registration}">Register</a></p>
+		  <p sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></p>
+	  </div>
+  </body>
+</html>

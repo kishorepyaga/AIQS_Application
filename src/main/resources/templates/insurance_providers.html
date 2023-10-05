@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Insurance Providers</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  </head>
+  <body>
+	  <h1 style="font-family: Georgia, 'Times New Roman', Times, serif; width: 70%; text-align: center;">List of Insurance Providers</h1>
+	  <table class="table table-striped caption-top" style="border: green; text-align: center; width: 70%; font-family: Georgia, 'Times New Roman', Times, serif;">
+	  <thead style="font-size: 115%; font: bold;">
+		  <tr>
+			  <td>Insurance Provider Name</td>
+			  <td>Insurance Declared Value (%)</td>
+			  <td>Discount (%)</td>
+			  <td>Request for Insurance</td>
+		  </tr>
+	  </thead>
+	  <tbody>
+		  <tr th:each="p: ${insuranceProvidersDetails}">
+			  <td th:text="${p.insuranceProviderName}"></td>
+			  <td th:text="${p.insuranceDeclaredValue}"></td>
+			  <td th:text="${p.discount}"></td>
+			  <td><a class="btn btn-outline-primary" th:href="@{/insuranceRequest}">Submit</a></td>
+		  </tr>
+	  </tbody>
+	  </table>
+  </body>
+</html>

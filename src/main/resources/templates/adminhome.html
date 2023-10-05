@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Admin Home Page</title>
+  </head>
+  <body style="font-size: 130%;">
+	  <p>WelCome Administrator</p>
+	  <span sec:authentication="principal.username"/>
+	  <div>
+		  <p><a th:href="@{/logout}">Logout</a></p>
+	  </div>
+	  
+	  <h2>Restricted Admin Home Page</h2>
+	  <p><a th:href="@{/admin/quoteManagement}">Manage Quotes</a></p>
+	  <p><a th:href="@{/userFolder/showUserProfiles}">List of Users & Profiles</a></p>
+	  <p><a th:href="@{/public/insuranceProviders}">Insurance Providers List</a></p>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  </head>
+  <body>
+	  <h1 style="align-content: center; font-family: 'Times New Roman', Times, serif; font: bolder; text-align: center; width: 100%;">
+		  List of Users & Profiles</h1>
+		<table class="table table-striper" style="text-align: center; font-family: Verdana, Geneva, Tahoma, sans-serif;">
+			<tr style="font-size: large;">
+				<th>User Id</th>
+				<th>User Name</th>
+				<th>DOB</th>
+				<th>Gender</th>
+				<th>Profession</th>
+				<th>Permanent Address</th>
+				<th>Present Address</th>
+				<th>Contact Number</th>
+				<th>Email Id</th>
+				<th>Role</th>
+			</tr>
+			<tr th:each="p: ${userProfiles}">
+				<td th:text="${p.userId}"/>
+				<td th:text="${p.userName}"/>
+				<td th:text="${p.DOB}"/>
+				<td th:text="${p.gender}"/>
+				<td th:text="${p.profession}"/>
+				<td th:text="${p.permanentAddress}"/>
+				<td th:text="${p.presentAddress}"/>
+				<td th:text="${p.contactNumber}"/>
+				<td th:text="${p.emailId}"/>
+				<td th:text="${p.role}"/>
+			</tr>
+		</table>
+  </body>
+</html>
